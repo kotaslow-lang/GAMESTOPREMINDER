@@ -1,0 +1,99 @@
+{
+  "default_time_limit_minutes": 60,
+  "reminder_interval_minutes": 10,
+  "sound_enabled": true,
+  "auto_start_detection": true,
+  "start_minimized": false,
+  "games": [
+    {
+      "exe_name": "GTA5.exe",
+      "display_name": "Grand Theft Auto V",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "VALORANT.exe",
+      "display_name": "VALORANT",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "LeagueClient.exe",
+      "display_name": "League of Legends",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "FortniteClient-Win64-Shipping.exe",
+      "display_name": "Fortnite",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "Minecraft.exe",
+      "display_name": "Minecraft",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "javaw.exe",
+      "display_name": "Minecraft (Java)",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "eldenring.exe",
+      "display_name": "Elden Ring",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "cs2.exe",
+      "display_name": "Counter-Strike 2",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "RocketLeague.exe",
+      "display_name": "Rocket League",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "ApexLegends.exe",
+      "display_name": "Apex Legends",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "overwatch.exe",
+      "display_name": "Overwatch 2",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "Genshin Impact.exe",
+      "display_name": "Genshin Impact",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "ZenlessZoneZero.exe",
+      "display_name": "Zenless Zone Zero",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "MONSTER HUNTER WILDS.exe",
+      "display_name": "Monster Hunter Wilds",
+      "enabled": true,
+      "custom_time_limit": null
+    },
+    {
+      "exe_name": "notepad.exe",
+      "display_name": "Notepad (テスト用)",
+      "enabled": false,
+      "custom_time_limit": null
+    }
+  ]
+}
