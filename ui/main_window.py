@@ -288,16 +288,16 @@ class MainWindow(QMainWindow):
 
         header_layout.addStretch()
 
-        self.settings_btn = QPushButton("⚙️")
+        self.settings_btn = QPushButton("\uE713")  # Segoe MDL2 Settings
         self.settings_btn.setObjectName("settingsBtn")
         self.settings_btn.setFixedSize(36, 36)
         self.settings_btn.setToolTip("設定")
         header_layout.addWidget(self.settings_btn)
 
-        self.minimize_btn = QPushButton("─")
+        self.minimize_btn = QPushButton("\uE8BB")  # Segoe MDL2 Close
         self.minimize_btn.setObjectName("minimizeBtn")
         self.minimize_btn.setFixedSize(36, 36)
-        self.minimize_btn.setToolTip("トレイに最小化")
+        self.minimize_btn.setToolTip("閉じる (トレイに最小化)")
         self.minimize_btn.clicked.connect(self._minimize_to_tray)
         header_layout.addWidget(self.minimize_btn)
 
