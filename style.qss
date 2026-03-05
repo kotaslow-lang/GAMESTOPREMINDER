@@ -1,16 +1,16 @@
 /* =============================================
-   Game Stop Reminder - Dark Gaming Theme
-   Neon accents on dark background
+   Game Stop Reminder - Cyberpunk / Near-Future Theme
    ============================================= */
 
 /* --- Global --- */
 * {
-    font-family: "Segoe UI", "Yu Gothic UI", "Meiryo", sans-serif;
-    color: #e0e0e0;
+    font-family: "Segoe UI", "Yu Gothic UI", sans-serif;
+    color: #E2E8F0;
 }
 
 QMainWindow, QDialog {
-    background-color: #0d0d1a;
+    background-color: #05050A; /* Deep dark blue/black */
+    border: 1px solid #0FF0FC; /* Neon Cyan border for dialogs */
 }
 
 QWidget {
@@ -19,17 +19,18 @@ QWidget {
 
 /* --- App Title --- */
 #appTitle {
-    color: #00f5d4;
-    font-size: 16pt;
+    color: #0FF0FC;
+    font-size: 18pt;
+    font-weight: 800;
+    letter-spacing: 2px;
     padding: 4px 0;
 }
 
 /* --- Status Card --- */
 #statusCard {
-    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #1a1a3e, stop:1 #0d0d2b);
-    border: 1px solid #2a2a5e;
-    border-radius: 16px;
+    background: #0B0E1B;
+    border: 1px solid #FF007F; /* Neon Magenta */
+    border-radius: 4px; /* Sharp corners for sci-fi look */
     padding: 16px;
 }
 
@@ -39,146 +40,163 @@ QWidget {
 }
 
 #statusLabel {
-    color: #aaa;
+    color: #94A3B8;
     font-size: 11pt;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 #gameName {
-    color: #ffffff;
-    font-size: 18pt;
+    color: #FFFFFF;
+    font-size: 20pt;
+    font-weight: 900;
     padding: 8px 0;
 }
 
 #timerHeader {
-    color: #888;
+    color: #0FF0FC;
     font-size: 9pt;
-    text-transform: uppercase;
+    font-weight: bold;
     letter-spacing: 2px;
 }
 
 #elapsedTime {
-    color: #00f5d4;
-    font-size: 28pt;
+    color: #0FF0FC;
+    font-size: 32pt;
     font-family: "Consolas", "Courier New", monospace;
+    font-weight: 900;
     padding: 4px 0;
 }
 
 #remainingTime {
-    color: #7b61ff;
-    font-size: 28pt;
+    color: #B200FF; /* Neon Purple */
+    font-size: 32pt;
     font-family: "Consolas", "Courier New", monospace;
+    font-weight: 900;
     padding: 4px 0;
 }
 
 #timerSep {
-    background-color: #2a2a5e;
+    background-color: #334155;
     max-width: 1px;
     margin: 8px 16px;
 }
 
 /* --- Progress Bar --- */
 #timeProgress {
-    background-color: #1a1a3e;
-    border: none;
-    border-radius: 4px;
-    height: 8px;
+    background-color: #05050A;
+    border: 1px solid #334155;
+    border-radius: 0px;
+    height: 6px;
 }
 
 #timeProgress::chunk {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
-        stop:0 #00f5d4, stop:0.7 #7b61ff, stop:1.0 #ff6b6b);
-    border-radius: 4px;
+        stop:0 #0FF0FC, stop:0.5 #B200FF, stop:1.0 #FF007F);
+    border-radius: 0px;
 }
 
 /* --- Buttons --- */
 QPushButton {
-    background-color: #1a1a3e;
-    color: #e0e0e0;
-    border: 1px solid #2a2a5e;
-    border-radius: 8px;
+    background-color: #0A0F1E;
+    color: #0FF0FC;
+    border: 1px solid #0FF0FC;
+    border-radius: 2px;
     padding: 8px 16px;
     font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 QPushButton:hover {
-    background-color: #2a2a5e;
-    border-color: #00f5d4;
-    color: #00f5d4;
+    background-color: rgba(15, 240, 252, 0.15);
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
 }
 
 QPushButton:pressed {
-    background-color: #0d0d2b;
+    background-color: rgba(15, 240, 252, 0.3);
 }
 
 #detectionBtn {
-    background-color: #00f5d4;
-    color: #0d0d1a;
-    font-weight: bold;
-    border: none;
-    padding: 8px 20px;
-    border-radius: 8px;
+    background-color: rgba(15, 240, 252, 0.1);
+    color: #0FF0FC;
+    border: 1px solid #0FF0FC;
+    font-weight: 900;
+    padding: 8px 24px;
+    border-radius: 2px;
 }
 
 #detectionBtn:hover {
-    background-color: #00dbb8;
-    color: #0d0d1a;
+    background-color: #0FF0FC;
+    color: #05050A;
 }
 
 #detectionBtn:pressed {
-    background-color: #00c4a3;
+    background-color: #00C4D1;
 }
 
+/* Icon Buttons at top right */
 #settingsBtn, #minimizeBtn {
     background-color: transparent;
-    border: 1px solid #2a2a5e;
-    color: #888;
-    font-size: 14pt;
-    border-radius: 8px;
-}
-
-#settingsBtn:hover, #minimizeBtn:hover {
-    border-color: #00f5d4;
-    color: #00f5d4;
-    background-color: rgba(0, 245, 212, 0.1);
-}
-
-#addGameBtn {
-    background-color: #7b61ff;
-    color: #fff;
     border: none;
+    color: #64748B;
+    font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets", sans-serif;
+    font-size: 14pt;
+    border-radius: 18px; /* Circular hover effect */
+}
+
+#settingsBtn:hover {
+    color: #0FF0FC;
+    background-color: rgba(15, 240, 252, 0.1);
+}
+
+#minimizeBtn:hover {
+    color: #FF007F;
+    background-color: rgba(255, 0, 127, 0.1);
+}
+
+#addGameBtn, #scanGameBtn {
+    background-color: rgba(178, 0, 255, 0.1);
+    color: #B200FF;
+    border: 1px solid #B200FF;
     font-weight: bold;
     padding: 6px 16px;
-    border-radius: 8px;
+    border-radius: 2px;
 }
 
-#addGameBtn:hover {
-    background-color: #6a50ee;
+#addGameBtn:hover, #scanGameBtn:hover {
+    background-color: #B200FF;
+    color: #FFFFFF;
 }
 
 #gameActionBtn {
     background-color: transparent;
-    border: 1px solid #2a2a5e;
-    border-radius: 6px;
+    border: 1px solid #334155;
+    border-radius: 2px;
     font-size: 12pt;
-    padding: 2px;
+    padding: 4px;
+    color: #94A3B8;
 }
 
 #gameActionBtn:hover {
-    border-color: #7b61ff;
-    background-color: rgba(123, 97, 255, 0.15);
+    border-color: #0FF0FC;
+    color: #0FF0FC;
+    background-color: rgba(15, 240, 252, 0.1);
 }
 
 #clearHistoryBtn {
     background-color: transparent;
-    border: 1px solid #ff6b6b;
-    color: #ff6b6b;
-    border-radius: 6px;
+    border: 1px solid #FF007F;
+    color: #FF007F;
+    border-radius: 2px;
     padding: 4px 12px;
     font-size: 9pt;
 }
 
 #clearHistoryBtn:hover {
-    background-color: rgba(255, 107, 107, 0.15);
+    background-color: rgba(255, 0, 127, 0.15);
+    color: #FFFFFF;
 }
 
 /* --- Tabs --- */
@@ -187,111 +205,120 @@ QPushButton:pressed {
 }
 
 QTabWidget::pane {
-    border: 1px solid #2a2a5e;
-    border-radius: 8px;
-    background-color: #0d0d1a;
+    border: 1px solid #334155;
+    border-radius: 0px;
+    background-color: #0A0F1E;
     top: -1px;
 }
 
 QTabBar::tab {
-    background-color: #1a1a3e;
-    color: #888;
-    border: 1px solid #2a2a5e;
-    border-bottom: none;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    padding: 8px 20px;
-    margin-right: 2px;
+    background-color: #05050A;
+    color: #64748B;
+    border: 1px solid transparent;
+    border-bottom: 2px solid #334155;
+    padding: 10px 24px;
+    margin-right: 4px;
     font-size: 10pt;
+    font-weight: bold;
 }
 
 QTabBar::tab:selected {
-    background-color: #0d0d1a;
-    color: #00f5d4;
-    border-color: #2a2a5e;
-    border-bottom: 2px solid #00f5d4;
+    background-color: #0A0F1E;
+    color: #0FF0FC;
+    border-bottom: 2px solid #0FF0FC;
 }
 
 QTabBar::tab:hover:!selected {
-    background-color: #2a2a5e;
-    color: #e0e0e0;
+    background-color: #0B0E1B;
+    color: #E2E8F0;
+    border-bottom: 2px solid #94A3B8;
 }
 
 /* --- Search Input --- */
 #searchInput {
-    background-color: #1a1a3e;
-    border: 1px solid #2a2a5e;
-    border-radius: 8px;
+    background-color: #05050A;
+    border: 1px outset #0FF0FC;
+    border-radius: 0px;
     padding: 8px 12px;
-    color: #e0e0e0;
+    color: #0FF0FC;
     font-size: 10pt;
 }
 
 #searchInput:focus {
-    border-color: #00f5d4;
+    border: 1px inset #FF007F;
+    background-color: #0A0F1E;
 }
 
 /* --- Game Cards --- */
 #gameCard {
-    background-color: #1a1a3e;
-    border: 1px solid #2a2a5e;
-    border-radius: 10px;
+    background-color: #0A0F1E;
+    border: 1px solid #334155;
+    border-radius: 0px;
+    border-left: 4px solid #334155;
     padding: 4px;
 }
 
 #gameCard:hover {
-    border-color: #4a4a7e;
-    background-color: #1f1f45;
+    border-color: #0FF0FC;
+    border-left: 4px solid #0FF0FC;
+    background-color: #0B0E1B;
 }
 
 #gameName {
-    color: #e0e0e0;
+    color: #F8FAFC;
 }
 
 #gameExe {
-    color: #666;
+    color: #94A3B8;
 }
 
 #gameTimeLimit {
-    color: #7b61ff;
+    color: #B200FF;
     font-size: 10pt;
+    font-weight: bold;
 }
 
 /* --- History Cards --- */
 #historyCard {
-    background-color: #1a1a3e;
-    border: 1px solid #2a2a5e;
-    border-radius: 8px;
+    background-color: #0A0F1E;
+    border: 1px solid #334155;
+    border-radius: 0px;
+    border-left: 4px solid #B200FF;
 }
 
 #historyCard:hover {
-    border-color: #4a4a7e;
+    border-color: #B200FF;
+    background-color: #0B0E1B;
 }
 
 #historyGameName {
-    color: #e0e0e0;
+    color: #F8FAFC;
     font-size: 10pt;
+    font-weight: bold;
 }
 
 #historyDate {
-    color: #666;
+    color: #94A3B8;
 }
 
 #historyDuration {
-    color: #00f5d4;
+    color: #0FF0FC;
     font-size: 12pt;
+    font-weight: 900;
 }
 
 #emptyLabel {
-    color: #555;
-    font-size: 11pt;
+    color: #64748B;
+    font-size: 12pt;
     padding: 40px;
 }
 
 /* --- Section Titles --- */
 #sectionTitle {
-    color: #e0e0e0;
+    color: #F8FAFC;
     font-size: 13pt;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
 /* --- Scroll Areas --- */
@@ -301,19 +328,18 @@ QScrollArea {
 }
 
 QScrollBar:vertical {
-    background-color: #0d0d1a;
-    width: 8px;
-    border-radius: 4px;
+    background-color: #05050A;
+    width: 6px;
 }
 
 QScrollBar::handle:vertical {
-    background-color: #2a2a5e;
-    border-radius: 4px;
+    background-color: #334155;
+    border-radius: 0px;
     min-height: 30px;
 }
 
 QScrollBar::handle:vertical:hover {
-    background-color: #4a4a7e;
+    background-color: #0FF0FC;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
@@ -322,82 +348,83 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 
 /* --- CheckBox --- */
 QCheckBox {
-    spacing: 8px;
-    color: #e0e0e0;
+    spacing: 12px;
+    color: #E2E8F0;
 }
 
 QCheckBox::indicator {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #2a2a5e;
-    border-radius: 4px;
-    background-color: #1a1a3e;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #0FF0FC;
+    border-radius: 0px; /* Square for cyberpunk */
+    background-color: #05050A;
 }
 
 QCheckBox::indicator:checked {
-    background-color: #00f5d4;
-    border-color: #00f5d4;
+    background-color: #0FF0FC;
+    border: 1px solid #FFFFFF;
 }
 
 QCheckBox::indicator:hover {
-    border-color: #00f5d4;
+    border: 1px solid #FF007F;
 }
 
 /* --- SpinBox --- */
 QSpinBox {
-    background-color: #1a1a3e;
-    border: 1px solid #2a2a5e;
-    border-radius: 6px;
+    background-color: #05050A;
+    border: 1px solid #334155;
+    border-radius: 0px;
     padding: 6px 8px;
-    color: #e0e0e0;
+    color: #0FF0FC;
     font-size: 10pt;
+    font-weight: bold;
 }
 
 QSpinBox:focus {
-    border-color: #00f5d4;
+    border-color: #0FF0FC;
 }
 
 QSpinBox::up-button, QSpinBox::down-button {
-    background-color: #2a2a5e;
-    border: none;
+    background-color: #0A0F1E;
+    border: 1px solid #334155;
     width: 20px;
-    border-radius: 3px;
+    border-radius: 0px;
 }
 
 QSpinBox::up-button:hover, QSpinBox::down-button:hover {
-    background-color: #4a4a7e;
+    background-color: #0FF0FC;
 }
 
 /* --- GroupBox --- */
 QGroupBox {
-    border: 1px solid #2a2a5e;
-    border-radius: 10px;
+    border: 1px solid #334155;
+    border-radius: 0px;
     margin-top: 16px;
     padding: 16px 12px 12px 12px;
     font-size: 11pt;
-    font-weight: bold;
-    color: #e0e0e0;
+    font-weight: bold; /* No margin color inheritance fix */
+    color: #E2E8F0;
 }
 
 QGroupBox::title {
     subcontrol-origin: margin;
-    left: 16px;
-    padding: 0 8px;
-    color: #00f5d4;
+    left: 12px;
+    padding: 0 4px;
+    color: #B200FF;
 }
 
 /* --- LineEdit --- */
 QLineEdit {
-    background-color: #1a1a3e;
-    border: 1px solid #2a2a5e;
-    border-radius: 6px;
+    background-color: #05050A;
+    border: 1px solid #334155;
+    border-radius: 0px;
     padding: 6px 10px;
-    color: #e0e0e0;
+    color: #0FF0FC;
     font-size: 10pt;
 }
 
 QLineEdit:focus {
-    border-color: #00f5d4;
+    border-color: #FF007F;
 }
 
 /* --- DialogButtonBox --- */
@@ -405,57 +432,75 @@ QDialogButtonBox QPushButton {
     min-width: 80px;
 }
 
+#primaryBtn {
+    background-color: rgba(15, 240, 252, 0.1);
+    color: #0FF0FC;
+    border: 1px solid #0FF0FC;
+}
+#primaryBtn:hover {
+    background-color: #0FF0FC;
+    color: #05050A;
+}
+
 /* --- MessageBox --- */
 QMessageBox {
-    background-color: #0d0d1a;
+    background-color: #05050A;
+    border: 1px solid #FF007F;
 }
 
 QMessageBox QLabel {
-    color: #e0e0e0;
+    color: #E2E8F0;
 }
 
 /* --- Reminder Popup --- */
 #reminderPopup {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #2a0a3e, stop:1 #1a0a2e);
-    border: 2px solid #ff6b6b;
-    border-radius: 16px;
+        stop:0 #1A0010, stop:1 #0A001A);
+    border: 2px solid #FF007F;
+    border-radius: 0px;
 }
 
 #reminderTitle {
-    color: #ff6b6b;
-    font-size: 16pt;
-    font-weight: bold;
+    color: #FF007F;
+    font-size: 18pt;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
 #reminderMessage {
-    color: #e0e0e0;
-    font-size: 12pt;
-}
-
-#reminderDismissBtn {
-    background-color: #ff6b6b;
-    color: #0d0d1a;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 24px;
-    font-size: 11pt;
+    color: #0FF0FC;
+    font-size: 14pt;
     font-weight: bold;
 }
 
+#reminderDismissBtn {
+    background-color: rgba(255, 0, 127, 0.1);
+    color: #FF007F;
+    border: 1px solid #FF007F;
+    border-radius: 0px;
+    padding: 10px 24px;
+    font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 #reminderDismissBtn:hover {
-    background-color: #ff5252;
+    background-color: #FF007F;
+    color: #05050A;
 }
 
 #reminderSnoozeBtn {
     background-color: transparent;
-    border: 1px solid #7b61ff;
-    color: #7b61ff;
-    border-radius: 8px;
+    border: 1px solid #B200FF;
+    color: #B200FF;
+    border-radius: 0px;
     padding: 10px 24px;
     font-size: 11pt;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 #reminderSnoozeBtn:hover {
-    background-color: rgba(123, 97, 255, 0.2);
+    background-color: rgba(178, 0, 255, 0.2);
+    color: #FFFFFF;
 }

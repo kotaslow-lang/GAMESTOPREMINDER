@@ -31,6 +31,17 @@ def create_default_icon() -> QIcon:
 
 # Need to import Qt for the pen
 from PySide6.QtCore import Qt
+import os
+import sys
+
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller."""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 
 class TrayIcon(QSystemTrayIcon):
@@ -41,7 +52,13 @@ class TrayIcon(QSystemTrayIcon):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setIcon(create_default_icon())
+        
+        icon_path = get_resource_path(os.path.join("resources", "icons", "app_icon.ico"))
+        if os.path.exists(icon_path):
+            self.setIcon(QIcon(icon_path))
+        else:
+            self.setIcon(create_default_icon())
+            
         self.setToolTip("Game Stop Reminder - 待機中")
 
         self._setup_menu()

@@ -13,14 +13,25 @@ from PySide6.QtWidgets import (
     QLabel, QPushButton, QFrame, QGraphicsDropShadowEffect
 )
 from PySide6.QtCore import Qt, QTimer, QPropertyAnimation, QEasingCurve, QRect
-from PySide6.QtGui import QFont, QColor
+from PySide6.QtGui import QFont, QColor, QIcon
 
 from ui.main_window import MainWindow
 from ui.tray_icon import TrayIcon
 from ui.settings_dialog import SettingsDialog
 from game_detector import GameDetector
 from reminder_manager import ReminderManager
+from reminder_manager import ReminderManager
 from data.storage import load_settings, save_settings, load_history, add_history_entry
+
+
+def get_resource_path(relative_path):
+    """Get absolute path to resource, works for dev and for PyInstaller."""
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(base_path, relative_path)
 
 
 class ReminderPopup(QDialog):
@@ -117,8 +128,12 @@ class GameStopReminderApp:
         self.app = QApplication(sys.argv)
         self.app.setQuitOnLastWindowClosed(False)  # Keep running in tray
 
-        # Load styles
+        # Load styles and icons
         self._load_styles()
+        
+        icon_path = get_resource_path(os.path.join("resources", "icons", "app_icon.ico"))
+        if os.path.exists(icon_path):
+            self.app.setWindowIcon(QIcon(icon_path))
 
         # Load settings
         self.settings = load_settings()
@@ -143,7 +158,7 @@ class GameStopReminderApp:
 
     def _load_styles(self):
         """Load QSS stylesheet."""
-        style_path = os.path.join(os.path.dirname(__file__), "style.qss")
+        style_path = get_resource_path("style.qss")
         if os.path.exists(style_path):
             with open(style_path, "r", encoding="utf-8") as f:
                 self.app.setStyleSheet(f.read())
@@ -340,7 +355,11 @@ class GameStopReminderApp:
 
 def main():
     # Ensure we're running from the correct directory
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    try:
+        os.chdir(sys._MEIPASS)
+    except Exception:
+        os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    
     app = GameStopReminderApp()
     sys.exit(app.run())
 
