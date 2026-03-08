@@ -1,27 +1,35 @@
-"""
+﻿"""
 ui/settings_dialog.py - Settings dialog for configuring reminders.
 """
-from PySide6.QtWidgets import (
-    QDialog, QVBoxLayout, QHBoxLayout, QLabel, QSpinBox,
-    QCheckBox, QPushButton, QDialogButtonBox, QGroupBox, QFormLayout
-)
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QFont
+from PySide6.QtWidgets import (
+    QCheckBox,
+    QDialog,
+    QDialogButtonBox,
+    QFormLayout,
+    QGroupBox,
+    QLabel,
+    QSpinBox,
+    QVBoxLayout,
+)
 
 
 class SettingsDialog(QDialog):
     """Dialog for editing global app settings."""
+
     def __init__(self, settings: dict, parent=None):
         super().__init__(parent)
+        self.setObjectName("settingsDialog")
         self.setWindowTitle("⚙️  設定")
         self.setMinimumWidth(420)
         self.settings = settings.copy()
 
         layout = QVBoxLayout(self)
-        layout.setSpacing(16)
-        layout.setContentsMargins(20, 20, 20, 20)
+        layout.setSpacing(8)
+        layout.setContentsMargins(12, 12, 14, 12)
+        layout.setAlignment(Qt.AlignTop | Qt.AlignLeft)
 
-        # Title
         title = QLabel("アプリ設定")
         title.setObjectName("settingsTitle")
         title_font = QFont()
@@ -30,10 +38,11 @@ class SettingsDialog(QDialog):
         title.setFont(title_font)
         layout.addWidget(title)
 
-        # Timer settings group
         timer_group = QGroupBox("⏱  タイマー設定")
+        timer_group.setObjectName("settingsTimerGroup")
         timer_layout = QFormLayout()
-        timer_layout.setSpacing(12)
+        timer_layout.setSpacing(8)
+        timer_layout.setContentsMargins(8, 6, 8, 8)
 
         self.time_limit_spin = QSpinBox()
         self.time_limit_spin.setRange(1, 600)
@@ -50,9 +59,11 @@ class SettingsDialog(QDialog):
         timer_group.setLayout(timer_layout)
         layout.addWidget(timer_group)
 
-        # Notification settings group
         notif_group = QGroupBox("🔔  通知設定")
+        notif_group.setObjectName("settingsNotifGroup")
         notif_layout = QVBoxLayout()
+        notif_layout.setSpacing(6)
+        notif_layout.setContentsMargins(8, 6, 8, 8)
 
         self.sound_check = QCheckBox("アラーム音を鳴らす")
         self.sound_check.setChecked(settings.get("sound_enabled", True))
@@ -61,9 +72,11 @@ class SettingsDialog(QDialog):
         notif_group.setLayout(notif_layout)
         layout.addWidget(notif_group)
 
-        # Startup settings group
         startup_group = QGroupBox("🚀  起動設定")
+        startup_group.setObjectName("settingsStartupGroup")
         startup_layout = QVBoxLayout()
+        startup_layout.setSpacing(6)
+        startup_layout.setContentsMargins(8, 6, 8, 8)
 
         self.auto_detect_check = QCheckBox("起動時に自動でゲーム検知を開始")
         self.auto_detect_check.setChecked(settings.get("auto_start_detection", True))
@@ -76,9 +89,8 @@ class SettingsDialog(QDialog):
         startup_group.setLayout(startup_layout)
         layout.addWidget(startup_group)
 
-        layout.addStretch()
+        layout.addStretch(1)
 
-        # Buttons
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
@@ -92,3 +104,4 @@ class SettingsDialog(QDialog):
         self.settings["auto_start_detection"] = self.auto_detect_check.isChecked()
         self.settings["start_minimized"] = self.start_minimized_check.isChecked()
         return self.settings
+
